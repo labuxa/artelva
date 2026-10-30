@@ -20,4 +20,190 @@
 @media(max-width:360px){.container{width:calc(100% - 36px)}.hero-copy{padding-left:18px;padding-right:18px}.hero h1{font-size:51px}.brand-words>span{font-size:19px}.brand-symbol{width:29px;height:29px}.hero .button{font-size:9px;gap:18px}.service-item{grid-template-columns:19px 1fr;gap:11px}.service-icon{display:none}.section-intro h2,.about h2,.faq h2,.process-copy h2{font-size:41px}.contact h2{font-size:43px}.contact-phone{font-size:30px}.quote-form{padding-left:19px;padding-right:19px}.process-visual{margin-inline:18px}.process-copy{padding-left:18px;padding-right:18px}.visual-caption{font-size:37px}.privacy-header .nav-cta{font-size:8px;gap:7px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 html:not(.js) .quote-form{display:none}
+/* Artelva — clareza da oferta, atendimento local e leitura ampliada. */
+.main-nav{font-size:13px}
+.hero{grid-template-columns:48% 52%;min-height:650px}
+.hero-visual{min-height:650px}
+.hero-copy{padding-top:66px;padding-bottom:66px;padding-right:44px}
+.hero h1{font-size:clamp(64px,6.2vw,90px);line-height:1.02;letter-spacing:-.04em;margin-bottom:22px}
+.hero-description{font-size:15px;line-height:1.85;max-width:435px;margin-bottom:23px}
+.hero-area{display:flex;align-items:flex-start;gap:12px;margin:0 0 27px;max-width:435px}
+.hero-area>svg{width:18px;height:22px;flex-shrink:0;color:var(--gold);margin-top:2px}
+.hero-area p{font-size:12px;line-height:1.8;color:#c7c2b8}
+.hero-area strong{font-size:13px;display:block;font-weight:600;color:var(--ivory)}
+.hero-area p>span{display:block;margin-top:3px}
+.hero .button{font-size:12px;min-height:56px;gap:19px;padding:16px 21px}
+.hero-secondary{font-size:12px;margin-top:21px}
+.hero-note{margin-top:34px}
+.hero-note p{font-size:11px;line-height:1.85}
+.principles p{font-size:14px}
+.eyebrow{font-size:11px}
+.section-intro>p:not(.eyebrow){font-size:15px;line-height:1.9;max-width:390px}
+.section-intro .services-small-note{font-size:13px!important;margin-top:18px;color:var(--ink)}
+.text-link{font-size:13px}
+.service-item{padding:28px 0;gap:19px}
+.service-item h3{font-size:21px}
+.service-item p{font-size:14px;line-height:1.85;max-width:440px}
+.service-link{font-size:12px;margin-top:15px}
+.service-note{font-size:12px;line-height:1.85}
+.section-description{font-size:14px;line-height:1.8}
+.steps h3{font-size:16px}
+.steps p{font-size:14px;line-height:1.85;max-width:390px}
+.process-visual{min-height:730px}
+.process-visual figcaption{font-size:10px}
+.hero-visual figcaption{font-size:10px}
+.visual-caption{bottom:94px}
+.about-description{font-size:15px;line-height:1.9}
+.team-member h3{font-size:21px}
+.team-member p{font-size:14px;line-height:1.85}
+.team-role{font-size:10px!important}
+.agreements{background:var(--sand);border-top:1px solid var(--line)}
+.agreements-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:44px}
+.agreements-heading .eyebrow{padding-top:13px;max-width:230px}
+.agreements h2{font-size:clamp(42px,4.1vw,58px);max-width:670px;flex:0 1 670px}
+.agreements-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #c9c0b2}
+.agreements-grid article{padding:29px 26px 4px 0}
+.agreements-grid article+article{border-left:1px solid #c9c0b2;padding-left:26px}
+.agreements-grid article>span{font-size:11px;color:var(--gold-dark);display:block;margin-bottom:19px}
+.agreements-grid h3{font-size:16px;font-weight:600;line-height:1.5;min-height:48px;margin-bottom:12px}
+.agreements-grid p{font-size:14px;line-height:1.85;color:var(--muted)}
+.faq summary{font-size:15px}
+.faq details>p{font-size:14px;line-height:1.9}
+.contact-copy>p:not(.eyebrow):not(.contact-region){font-size:15px;line-height:1.9;max-width:430px}
+.contact-direct{font-size:12px;font-weight:700;color:var(--ink);margin-top:26px;border:1px solid transparent;gap:23px}
+.contact-direct>span{color:var(--ink)}
+.contact-region{font-size:13px;line-height:1.85;max-width:410px}
+.form-heading h3{font-size:31px}
+.form-heading p{font-size:13px;line-height:1.7}
+.form-number{font-size:10px}
+.field label{font-size:12px}
+.optional{font-size:11px}
+.field input,.field select,.field textarea{font-size:14px;padding:13px;min-height:47px}
+.form-submit{font-size:13px}
+.form-status{font-size:12px}
+.form-privacy{font-size:10px;line-height:1.85}
+.footer-main>p{font-size:13px}
+.footer-links{font-size:12px}
+.footer-bottom{font-size:10px}
+.floating-whatsapp{font-size:12px}
+.consent-banner p{font-size:12px}
+.consent-actions .button{font-size:12px}
+@media(max-width:1150px){
+ .main-nav{font-size:12px;gap:22px}
+ .hero-copy{padding-right:30px}
+ .hero h1{font-size:clamp(60px,6.4vw,77px)}
+ .hero-description{font-size:14px}
+ .hero .button{font-size:11px;gap:14px;padding:16px 17px}
+ .service-item{grid-template-columns:25px 1fr 39px;gap:15px}
+ .service-item h3{font-size:19px}
+ .agreements-grid{grid-template-columns:repeat(2,1fr)}
+ .agreements-grid article{padding:27px 30px 26px 0}
+ .agreements-grid article+article{padding-left:30px}
+ .agreements-grid article:nth-child(3){border-left:0;padding-left:0}
+ .agreements-grid article:nth-child(n+3){border-top:1px solid #c9c0b2}
+ .agreements-grid h3{min-height:0;margin-bottom:10px}
+}
+@media(min-width:761px) and (max-width:920px){
+ .main-nav{font-size:10px;gap:16px}
+ .hero-copy{padding-left:28px;padding-right:25px}
+ .hero h1{font-size:58px}
+ .hero-area p{font-size:11px}
+ .hero .button{font-size:10px;gap:11px;padding:15px 12px}
+ .hero-note p{font-size:10px}
+ .principles p{font-size:12px;gap:12px}
+ .section-intro>p:not(.eyebrow){font-size:14px}
+ .service-item{grid-template-columns:21px 1fr;gap:13px}
+ .service-icon{display:none}
+ .service-item h3{font-size:19px}
+ .steps p{font-size:13px}
+ .process-visual{min-height:850px}
+ .contact h2{font-size:46px}
+ .contact-copy>p:not(.eyebrow):not(.contact-region){font-size:14px}
+ .contact-direct{font-size:11px;gap:13px;padding:15px 17px}
+ .form-heading h3{font-size:28px}
+}
+@media(max-width:760px){
+ .site-header,.header-inner{min-height:78px}
+ .header-inner{padding-top:16px;padding-bottom:16px}
+ .main-nav{font-size:14px}
+ .nav-cta{font-size:13px}
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hero-copy{padding:43px 24px 40px;max-width:none}
+ .hero h1{font-size:clamp(49px,9vw,67px);line-height:1.03;max-width:600px;margin-bottom:21px}
+ .hero .eyebrow{font-size:10px;letter-spacing:.17em;margin-bottom:21px}
+ .hero-description{font-size:14px;line-height:1.85;max-width:520px;margin-bottom:21px}
+ .hero-area{margin-bottom:24px;max-width:480px;gap:10px}
+ .hero-area>svg{width:17px;height:20px}
+ .hero-area p{font-size:12px;line-height:1.8}
+ .hero-area strong{font-size:13px}
+ .hero .button{font-size:12px;gap:17px;padding:16px 18px;min-height:54px}
+ .hero-secondary{font-size:12px;margin-top:22px}
+ .hero-visual{min-height:0;height:360px}
+ .hero-visual figcaption{font-size:10px}
+ .hero-note{display:none}
+ .principles p,.principles p:first-child,.principles p:last-child{font-size:13px;gap:18px;padding:14px 0}
+ .eyebrow{font-size:10px}
+ .section-intro>p:not(.eyebrow){font-size:14px;line-height:1.9;max-width:520px}
+ .section-intro .services-small-note{font-size:13px!important;margin-top:17px}
+ .text-link{font-size:12px;line-height:1.7;gap:20px}
+ .service-item{grid-template-columns:20px 1fr 32px;gap:12px;padding:27px 0}
+ .service-item h3{font-size:19px}
+ .service-item p{font-size:14px;line-height:1.85}
+ .service-link{font-size:12px;line-height:1.7;gap:12px}
+ .service-note{font-size:12px}
+ .service-icon{display:block;width:30px;height:30px}
+ .section-description{font-size:14px;line-height:1.85}
+ .process-visual{min-height:0;height:470px}
+ .process-visual figcaption{font-size:9px}
+ .visual-caption{font-size:40px;bottom:94px}
+ .steps h3{font-size:16px}
+ .steps p{font-size:14px;line-height:1.85}
+ .steps li{padding:21px 0}
+ .about-description{font-size:14px;line-height:1.9}
+ .team-member h3{font-size:20px}
+ .team-member p{font-size:14px;line-height:1.85}
+ .team-role{font-size:10px!important;line-height:1.8!important}
+ .agreements-heading{display:block;margin-bottom:32px}
+ .agreements-heading .eyebrow{padding-top:0;max-width:none;margin-bottom:21px}
+ .agreements h2{font-size:42px;line-height:1.1}
+ .agreements-grid{grid-template-columns:1fr}
+ .agreements-grid article,.agreements-grid article+article{border-left:0;padding:24px 0}
+ .agreements-grid article+article{border-top:1px solid #c9c0b2}
+ .agreements-grid article>span{margin-bottom:12px}
+ .agreements-grid h3{font-size:17px;min-height:0;margin-bottom:9px}
+ .agreements-grid p{font-size:14px;max-width:510px}
+ .faq summary{font-size:14px;line-height:1.8}
+ .faq details>p{font-size:14px;line-height:1.9}
+ .contact h2{font-size:clamp(43px,7.8vw,59px)}
+ .contact-copy>p:not(.eyebrow):not(.contact-region){font-size:14px;line-height:1.9;max-width:510px}
+ .contact-direct{font-size:12px;gap:20px;padding:16px 19px;margin-top:23px}
+ .contact-region{font-size:13px;max-width:500px}
+ .form-heading h3{font-size:30px;line-height:1.2}
+ .form-heading p{font-size:13px;line-height:1.8}
+ .form-number{font-size:10px}
+ .field label{font-size:12px}
+ .field input,.field select,.field textarea{font-size:16px;line-height:1.6;min-height:48px}
+ .field input::placeholder,.field textarea::placeholder{font-size:14px}
+ .form-submit{font-size:13px}
+ .form-privacy{font-size:10px;line-height:1.9}
+ .footer-main>p{font-size:13px}
+ .footer-links{font-size:12px;gap:17px 22px}
+ .footer-bottom{font-size:10px;line-height:1.9}
+ .floating-whatsapp{font-size:12px}
+ .consent-banner p{font-size:12px;line-height:1.85}
+ .consent-actions .button{font-size:11px}
+}
+@media(max-width:360px){
+ .hero-copy{padding-left:18px;padding-right:18px}
+ .hero h1{font-size:46px;letter-spacing:-.04em}
+ .hero .button{font-size:11px;padding:16px 14px;gap:13px}
+ .hero-area p{font-size:12px}
+ .service-item{grid-template-columns:18px 1fr;gap:11px}
+ .service-icon{display:none}
+ .service-item h3{font-size:19px}
+ .contact-direct{font-size:11px;gap:14px;padding:16px}
+ .agreements h2{font-size:37px}
+ .form-heading h3{font-size:27px}
+}
 @media print{.site-header,.floating-whatsapp,.consent-banner,.menu-toggle{display:none!important}.hero{display:block}.hero-copy{padding:30px}.hero-visual{display:none}.section{padding:30px 0}.container{width:100%}.contact{background:white;color:black}.contact-copy>p{color:black!important}.quote-form{border:1px solid #ddd}.contact h2 em{color:black}.footer-links{display:none}}
+

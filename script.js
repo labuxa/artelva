@@ -30,8 +30,14 @@
       if (siteUrl.protocol === "https:" || siteUrl.protocol === "http:") {
         const base = siteUrl.href.endsWith("/") ? siteUrl.href : siteUrl.href + "/";
         const page = document.body.classList.contains("privacy-page") ? "privacidade.html" : "";
-        const canonical = document.createElement("link"); canonical.rel = "canonical"; canonical.href = new URL(page, base).href; document.head.appendChild(canonical);
-        [["og:url", canonical.href], ["og:image", new URL("assets/images/sala-1600.webp", base).href]].forEach(([property, content]) => { const meta = document.createElement("meta"); meta.setAttribute("property", property); meta.content = content; document.head.appendChild(meta); });
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+        canonical.href = new URL(page, base).href;
+        [["og:url", canonical.href], ["og:image", new URL("assets/images/artelva-compartilhamento.png", base).href]].forEach(([property, content]) => {
+          let meta = document.querySelector('meta[property="' + property + '"]');
+          if (!meta) { meta = document.createElement("meta"); meta.setAttribute("property", property); document.head.appendChild(meta); }
+          meta.content = content;
+        });
       }
     } catch { /* Keep the site functional before the production URL is known. */ }
   }
@@ -122,3 +128,4 @@
     startTracking();
   }
 })();
+
