@@ -5,7 +5,8 @@
   const message = config.defaultMessage || "Olá! Vim pelo site da Artelva e gostaria de conversar sobre uma reforma.";
   const clean = (value, limit = 1000) => String(value || "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim().slice(0, limit);
   const campaignParams = new URLSearchParams(window.location.search);
-  const campaign = ["utm_source", "utm_medium", "utm_campaign"].map(key => clean(campaignParams.get(key), 120).replace(/[\r\n]/g, " "));
+  const campaignKeys = ["utm_source", "utm_medium", "utm_campaign"];
+  const campaign = campaignKeys.map(key => clean(campaignParams.get(key), 120).replace(/[\r\n]/g, " "));
   const attribution = campaign.some(Boolean) ? "\n\nOrigem da campanha: " + campaign.filter(Boolean).join(" / ") : "";
   const whatsappUrl = text => "https://wa.me/" + number + "?text=" + encodeURIComponent(text + attribution);
   const configuredEmail = clean(config.contactEmail, 254);
@@ -15,8 +16,24 @@
   document.querySelectorAll("[data-year]").forEach(el => { el.textContent = new Date().getFullYear(); });
   document.querySelectorAll("[data-phone-display]").forEach(el => { el.textContent = config.whatsappDisplay || "(31) 98696-4656"; });
   document.querySelectorAll("[data-whatsapp]").forEach(el => {
-    el.href = whatsappUrl(message);
-    el.addEventListener("click", () => trackContact(el.dataset.placement || "link"));
+    const selectedService = clean(el.dataset.whatsappService, 100);
+    const customMessage = clean(el.dataset.whatsappMessage, 1000);
+    const contactMessage = customMessage || (selectedService ? "Olá, Elvis! Vim pelo site da Artelva e gostaria de solicitar um orçamento para " + selectedService.toLocaleLowerCase("pt-BR") + "." : message);
+    el.href = whatsappUrl(contactMessage);
+    el.addEventListener("click", () => trackContact(el.dataset.placement || "link", selectedService));
+  });
+  // Keep campaign context while the visitor reads another marketing page.
+  // Hash-only navigation and personal form fields never enter these URLs.
+  if (campaign.some(Boolean)) document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute("href") || "";
+    if (!href || href.startsWith("#")) return;
+    try {
+      const url = new URL(href, window.location.href);
+      const marketingPage = /\/(?:index\.html|imobiliarias\.html|servicos\/(?:pintura-revestimentos|eletrica-iluminacao|reforma-banheiro|reforma-ambientes)\.html)$/.test(url.pathname) || url.pathname.endsWith("/");
+      if (url.origin !== window.location.origin || !marketingPage || !/^https?:$/.test(url.protocol)) return;
+      campaignKeys.forEach((key, i) => { if (campaign[i]) url.searchParams.set(key, campaign[i]); });
+      link.href = url.href;
+    } catch { /* Preserve the original link if it is not a web address. */ }
   });
   document.querySelectorAll("[data-email]").forEach(el => {
     el.href = "mailto:" + email;
@@ -42,7 +59,7 @@
       const siteUrl = new URL(config.siteUrl);
       if (siteUrl.protocol === "https:" || siteUrl.protocol === "http:") {
         const base = siteUrl.href.endsWith("/") ? siteUrl.href : siteUrl.href + "/";
-        const page = document.body.classList.contains("privacy-page") ? "privacidade.html" : "";
+        const page = document.body.dataset?.pagePath ?? (document.body.classList.contains("privacy-page") ? "privacidade.html" : "");
         let canonical = document.querySelector('link[rel="canonical"]');
         if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
         canonical.href = new URL(page, base).href;
@@ -64,7 +81,7 @@
     nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => { if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") { closeMenu(); menu.focus(); } });
     document.addEventListener("click", event => { if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
-    window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
+    window.matchMedia("(min-width: 961px)").addEventListener("change", closeMenu);
     const sectionLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
     const markCurrent = id => sectionLinks.forEach(link => {
       if (link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "location");
@@ -141,7 +158,7 @@
   // The contact section already has clear actions; keep the floating shortcut
   // from covering the form and the contact details while that section is visible.
   const floatingContact = document.querySelector(".floating-whatsapp");
-  const contactSection = document.getElementById("contato");
+  const contactSection = document.getElementById("contato") || document.querySelector(".service-contact");
   if (floatingContact && contactSection && "IntersectionObserver" in window) {
     const contactObserver = new window.IntersectionObserver(entries => {
       floatingContact.hidden = entries[0].isIntersecting;
@@ -151,6 +168,9 @@
 
   const form = document.getElementById("quote-form");
   const service = document.getElementById("client-service");
+  const serviceNames = {"pintura-revestimentos": "Pintura e revestimentos", "eletrica-iluminacao": "Elétrica e iluminação", "reforma-banheiro": "Reformas de banheiros", "reforma-ambientes": "Reformas de ambientes"};
+  const requestedService = serviceNames[campaignParams.get("servico")];
+  if (service && requestedService) service.value = requestedService;
   document.querySelectorAll("[data-service]").forEach(link => link.addEventListener("click", () => { if (service) { service.value = link.dataset.service; } }));
   if (form) {
     form.action = "https://wa.me/" + number;
@@ -163,6 +183,7 @@
       if (!form.reportValidity()) return;
       const data = new FormData(form);
       const lines = ["Olá, " + (clean(config.whatsappContactName, 40) || "Elvis") + "! Vim pelo site da Artelva e gostaria de conversar sobre um serviço.", "", "Nome: " + clean(data.get("nome"), 80), "Cidade e bairro: " + clean(data.get("local"), 140), "Serviço: " + clean(data.get("servico"), 100), "Quando pretendo iniciar: " + clean(data.get("prazo"), 80)];
+      const profile = clean(data.get("perfil"), 80); if (profile) lines.push("Solicito como: " + profile);
       const details = clean(data.get("detalhes"), 1000); if (details) lines.push("", "Detalhes: " + details);
       const status = document.getElementById("form-status"); if (status) status.textContent = "Abrindo o WhatsApp com sua mensagem. Envie por lá para continuar.";
       trackContact("quote_form", clean(data.get("servico"), 100));

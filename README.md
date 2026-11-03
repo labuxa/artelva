@@ -1,99 +1,85 @@
-# Artelva Construtora — atualização de 3 de novembro de 2026
+# Artelva Construtora — site final
 
-Site estático pronto para o GitHub Pages, sem instalação, build de aplicação ou servidor próprio.
+Site estático para o **GitHub Pages**, com arquivos prontos para publicação. Não exige instalação, build de aplicação ou servidor próprio.
 
-Endereço atual: **https://labuxa.github.io/artelva/**
+Endereço: **https://labuxa.github.io/artelva/**
+Repositório: **https://github.com/labuxa/artelva** — branch **main**.
 
-## Atualizar o site que já está no ar
+## Como atualizar o site
 
-1. Extraia este ZIP no computador. Localize a pasta que contém `index.html`, `styles.css`, `script.js`, `config.js` e `assets`.
-2. Abra o repositório **https://github.com/labuxa/artelva**.
-3. Na aba **Code**, escolha **Add file → Upload files**.
-4. Envie o conteúdo da pasta extraída para a raiz do repositório, mantendo a pasta `assets` e suas subpastas. Envie os arquivos extraídos, e não o ZIP nem uma pasta externa envolvendo o projeto.
-5. Confirme o commit na branch `main`.
-6. Abra **Actions** e aguarde a publicação ficar verde.
-7. Abra o site. Se ainda aparecer o visual anterior, atualize com `Ctrl + F5` ou teste em uma janela anônima.
+1. Extraia o ZIP. Na pasta extraída você encontrará `index.html`, `styles.css`, `script.js`, `config.js`, a pasta `assets` e a pasta `servicos`.
+2. No repositório, abra **Code → Add file → Upload files**.
+3. Envie **o conteúdo extraído para a raiz do repositório**, mantendo as pastas `assets` e `servicos` com suas subpastas. Não envie o ZIP nem uma pasta externa envolvendo o projeto.
+4. Confirme o commit na branch **main**.
+5. Abra **Actions** e espere a publicação ficar verde.
+6. Abra o endereço do site. Se necessário, use `Ctrl + F5` ou uma janela anônima.
 
-O GitHub Pages e o workflow já estão configurados no repositório. **Não é necessário refazer a configuração de hospedagem.** O arquivo `.github/workflows/static.yml` incluído é o mesmo que já foi publicado com sucesso.
+O GitHub Pages já está configurado. O workflow `.github/workflows/static.yml` incluído é o mesmo que já funciona no repositório; preserve-o. A pasta oculta `.github` e o arquivo `.nojekyll` fazem parte do pacote.
 
-## O que mudou
+## Páginas incluídas
 
-- Apresentação ampliada de Arthur Araújo e Elvis de Morais Rosa, com responsabilidades e experiências relevantes para o cliente.
-- Formação de Elvis em Edificações identificada como em andamento. A experiência em eletrotécnica não é apresentada como diploma ou registro profissional.
-- Perfil de Arthur baseado no currículo fornecido, com link para o LinkedIn. Dados pessoais de contato e o currículo completo não foram publicados.
-- E-mail comercial **artelvaconstrutoraeng@gmail.com** no contato, rodapé, política de privacidade, página 404 e metadados.
-- Menu fixo durante a rolagem, indicação da seção atual e acesso direto à área de contato.
-- Navegação corrigida: cada link chega ao conteúdo da seção, a 24 px do cabeçalho, sem faixa da seção anterior ou soma dos espaçamentos internos.
-- A aba “Como funciona” chega às etapas também no celular. Links diretos com `#`, retorno ao topo e navegação pelo histórico usam o mesmo alinhamento.
-- Rolagem suave aplicada somente à navegação interna explícita, respeitando a preferência por movimento reduzido.
-- Atalho flutuante de WhatsApp recolhido enquanto a área de contato está visível, para manter o formulário livre.
-- Ajustes de leitura, espaçamento, navegação móvel e quebra de linhas dos contatos.
-- Pergunta frequente sobre atendimento a imobiliárias e imóveis para locação.
-- Caminhos da página 404 ajustados para o projeto `/artelva/`, inclusive quando o endereço não encontrado tiver subpastas.
+- `index.html`: apresentação, serviços, processo, equipe, compromissos, dúvidas e contato.
+- `servicos/pintura-revestimentos.html`: pintura, pisos e revestimentos.
+- `servicos/eletrica-iluminacao.html`: elétrica e iluminação.
+- `servicos/reforma-banheiro.html`: reformas de banheiros.
+- `servicos/reforma-ambientes.html`: reformas de ambientes.
+- `imobiliarias.html`: manutenção e preparação de imóveis para locação, com contratação por demanda.
+- `privacidade.html` e `termos.html`: funcionamento do site e dos recursos de contato.
+- `404.html`: recuperação de endereços não encontrados.
 
-Mantidos nesta versão:
+Cada serviço tem conteúdo próprio e botões de WhatsApp com mensagem específica. O menu, o rodapé e os caminhos internos funcionam dentro do projeto `/artelva/`, inclusive nas páginas em subpastas.
 
-- Abertura com os serviços explícitos e contato direto pelo WhatsApp.
-- Atendimento em Belo Horizonte, Betim, Contagem, Ibirité e Sarzedo; cidades próximas sob consulta.
-- Informação clara de que a Artelva atende também pequenos serviços, sem anunciar um valor mínimo.
-- Destaque para pintura e revestimentos, elétrica e iluminação, reforma de banheiros e de ambientes.
-- Proposta por escrito, alinhamento de prazos, acompanhamento técnico e comunicação durante o serviço.
-- Instagram **@artelvaconstrutora** no rodapé.
-- Textos de apoio e campos maiores para facilitar a leitura.
-- Formulário como alternativa ao contato direto; os serviços escolhidos na página já ficam selecionados nele.
-- Metadados de compartilhamento, endereço canônico e sitemap com a URL real do site.
+## Contatos e informações
 
-## Diferenciais e operação
+- WhatsApp Business / Elvis: **(31) 98696-4656**.
+- E-mail: **artelvaconstrutoraeng@gmail.com**.
+- Instagram: **@artelvaconstrutora**.
+- Região: Belo Horizonte, Betim, Contagem, Ibirité e Sarzedo. Cidades próximas sob consulta.
+- Atendimento em horário comercial; visitas mediante agendamento.
 
-Os diferenciais anunciados devem integrar a rotina dos primeiros atendimentos:
+A apresentação da equipe foi mantida com as informações fornecidas. Arthur é apresentado como engenheiro civil, com experiência em planejamento, coordenação de obras e manutenção. Elvis é apresentado com experiência em obras, elétrica e liderança; Técnico em Edificações em andamento.
 
-1. **Proposta por escrito:** registrar os serviços, os itens incluídos e as condições de contratação.
-2. **Prazos alinhados:** combinar a previsão de execução e comunicar ajustes necessários.
-3. **Acompanhamento técnico:** manter a participação de Arthur de acordo com o serviço contratado.
-4. **Comunicação:** Elvis centraliza o atendimento e informa o andamento e as decisões necessárias.
-
-Não foram adicionados prazos fixos, promessas de ausência de imprevistos, compra de materiais incluída em todos os serviços, limpeza final incluída em todos os contratos ou garantias comerciais específicas. Esses pontos dependem do escopo de cada proposta.
+Não foram publicados currículo completo, contatos pessoais de Arthur, endereço residencial, CNPJ ou número de registro profissional. Não foram inventados depoimentos, avaliações, quantidade de obras ou tempo de empresa.
 
 ## WhatsApp e formulário
 
-Número comercial: **(31) 98696-4656**.
+O formulário valida os campos e **abre uma mensagem no WhatsApp**. O visitante precisa revisar e confirmar o envio no próprio WhatsApp para que Elvis a receba. Não existe banco de dados de pedidos ou envio automático de e-mail neste site.
 
-O formulário monta uma mensagem e abre o WhatsApp. O interessado precisa confirmar o envio da mensagem para que Elvis a receba. O site não possui banco de dados próprio de pedidos.
+O campo opcional “Você solicita como?” ajuda a distinguir moradores/proprietários de imobiliárias/administradores. O site não pede documentos, pagamento ou upload de arquivos.
 
-## Onde editar
-
-- `index.html`: textos, serviços, cidade/região, apresentação, links e metadados estáticos.
-- `config.js`: WhatsApp, e-mail comercial, Instagram, LinkedIn de Arthur, região exibida, URL do site e IDs de medição.
-- `styles.css`: cores, fontes, medidas e aparência em cada tamanho de tela.
-- `script.js`: menu, seleção de serviços, mensagem de WhatsApp, medição e preferência do visitante.
-- `privacidade.html`: informações sobre os dados e recursos do site.
-- `sitemap.xml` e `robots.txt`: referências de indexação.
-
-Se trocar o endereço do site, atualize também os metadados estáticos em `index.html`, a página de privacidade, `sitemap.xml` e `robots.txt`, além de `config.js`. Se mudar o nome do repositório ou passar para domínio próprio, atualize os caminhos `/artelva/` na página `404.html`. A imagem de compartilhamento é um arquivo local da identidade da Artelva.
-
-## Medição dos anúncios
-
-Os campos `tracking.googleTagManagerId` e `tracking.metaPixelId` continuam vazios, pois os IDs reais das contas não foram informados. Nenhuma campanha é criada pelo site.
-
-- Ao preencher um ID válido, o aviso de medição passa a ser exibido.
-- As ferramentas são carregadas apenas depois que o visitante aceita a medição.
-- O Google Tag Manager recebe o evento personalizado **`whatsapp_click`**, com `contact_placement` e `service`. Configure os gatilhos e as tags da campanha no próprio GTM.
-- Links de e-mail usam o evento **`email_click`**. Ambos os tipos incluem `contact_channel` para distinguir o canal.
-- O Meta Pixel usa os eventos **`PageView`** e **`Contact`**.
-- Nome, bairro e descrição do formulário não são incluídos nos eventos implementados pelo site.
-- Os eventos indicam intenção de contato, não confirmação de mensagem enviada ou contratação.
-- Evite instalar a mesma ferramenta duas vezes, diretamente e também pelo GTM.
-
-Parâmetros `utm_source`, `utm_medium` e `utm_campaign` presentes no link de entrada são acrescentados à mensagem de WhatsApp, visíveis antes do envio.
+A navegação do menu chega ao conteúdo das seções com espaço abaixo do cabeçalho. Links diretos, histórico do navegador e a preferência por movimento reduzido são respeitados. O atalho flutuante de WhatsApp fica recolhido enquanto a área de contato está visível.
 
 ## Fotos e identidade
 
-As imagens de sala e banheiro permanecem identificadas como **ilustrativas**. Ainda não foram recebidas fotos reais da equipe ou de serviços anteriores. Quando forem usadas, identifique corretamente a origem dos trabalhos e use apenas registros autorizados.
+As imagens são **ilustrativas** e não representam obras ou equipe da Artelva. Os avisos estão próximos às imagens e no rodapé. Fotos reais autorizadas podem substituir essas referências no futuro.
 
-Não há depoimentos, quantidade de obras, tempo de empresa ou avaliações inventados. O site apresenta execução e acompanhamento de serviços, sem anunciar um escritório de arquitetura.
+A identidade em grafite, dourado e tons claros foi preservada. Fontes Manrope e Newsreader são servidas localmente e têm suas licenças em `assets/fonts`.
 
-Fontes locais Manrope e Newsreader, acompanhadas das licenças SIL Open Font License, em `assets/fonts`.
+## Onde editar
 
-## E-mail nos outros canais
+- `config.js`: número, e-mail comercial, Instagram, LinkedIn de Arthur, área atendida, URL principal e IDs de medição.
+- Arquivos `.html`: textos, imagens, links e metadados estáticos de cada página.
+- `styles.css`: cores, tipografia, espaçamentos e tamanhos de tela.
+- `script.js`: menu, rolagem, mensagens, formulário e medição com consentimento.
+- `sitemap.xml` e `robots.txt`: endereço e páginas para indexação.
 
-Este pacote atualiza somente o site. Use o mesmo e-mail comercial nos dados de contato do Instagram, WhatsApp Business, Perfil da Empresa no Google e na futura versão final da apresentação em PDF. O site não altera esses serviços externos.
+Se mudar contatos ou endereço de publicação, atualize também os textos e os metadados estáticos dos arquivos HTML. Se mudar o nome do repositório ou usar domínio próprio, ajuste os caminhos `/artelva/` em `404.html`, além de `config.js`, `sitemap.xml`, `robots.txt` e das URLs canônicas.
+
+## Preparação para anúncios
+
+Os IDs de Google Tag Manager e Meta Pixel em `config.js` permanecem vazios: os dados reais das contas ainda não foram informados. O site não cria nem ativa campanhas.
+
+Quando um ID válido for preenchido, o aviso de medição aparece. As ferramentas só carregam após o visitante aceitar. A preferência pode ser alterada no rodapé e expira em até 180 dias.
+
+- GTM: eventos **`whatsapp_click`** e **`email_click`**, com canal, posição do contato e serviço quando aplicável. Os gatilhos e as tags devem ser configurados no próprio GTM.
+- Meta Pixel: eventos **`PageView`** e **`Contact`**.
+- Os eventos representam intenção de contato, sem confirmar envio da mensagem, venda ou contratação.
+- Nome, localização, perfil do solicitante e descrição do formulário não entram nos eventos implementados pelo site.
+- Os campos `utm_source`, `utm_medium` e `utm_campaign` acompanham a navegação entre páginas de apresentação e aparecem na mensagem de WhatsApp, visíveis para o visitante antes do envio.
+- Não instale a mesma ferramenta diretamente e também pelo GTM.
+
+## Verificação da entrega
+
+Foram verificados os arquivos e caminhos internos, metadados de cada página, conteúdo do sitemap, contatos, formulário, mensagens por serviço e consentimento de medição. A navegação e os layouts foram revisados no navegador em computador e em larguras de 320, 390 e 768 pixels.
+
+Esta entrega contém o pacote para atualizar o repositório. A publicação no endereço público acontece depois do envio dos arquivos e da conclusão do workflow do GitHub Pages.
