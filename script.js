@@ -8,6 +8,8 @@
   const campaign = ["utm_source", "utm_medium", "utm_campaign"].map(key => clean(campaignParams.get(key), 120).replace(/[\r\n]/g, " "));
   const attribution = campaign.some(Boolean) ? "\n\nOrigem da campanha: " + campaign.filter(Boolean).join(" / ") : "";
   const whatsappUrl = text => "https://wa.me/" + number + "?text=" + encodeURIComponent(text + attribution);
+  const configuredEmail = clean(config.contactEmail, 254);
+  const email = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(configuredEmail) ? configuredEmail : "artelvaconstrutoraeng@gmail.com";
 
   document.documentElement.classList.add("js");
   document.querySelectorAll("[data-year]").forEach(el => { el.textContent = new Date().getFullYear(); });
@@ -16,6 +18,17 @@
     el.href = whatsappUrl(message);
     el.addEventListener("click", () => trackContact(el.dataset.placement || "link"));
   });
+  document.querySelectorAll("[data-email]").forEach(el => {
+    el.href = "mailto:" + email;
+    el.addEventListener("click", () => trackContact(el.dataset.placement || "email", "", "email"));
+  });
+  document.querySelectorAll("[data-email-display]").forEach(el => { el.textContent = email; });
+  if (config.arthurLinkedinUrl) {
+    try {
+      const url = new URL(config.arthurLinkedinUrl);
+      if (url.protocol === "https:" && /^(www\.)?linkedin\.com$/.test(url.hostname) && url.pathname.startsWith("/in/")) document.querySelectorAll("[data-arthur-linkedin]").forEach(el => { el.href = url.href; });
+    } catch { /* Preserve the confirmed profile link when configuration is invalid. */ }
+  }
 
   if (config.serviceAreaText) document.querySelectorAll("[data-region]").forEach(el => { el.textContent = clean(config.serviceAreaText, 200); el.hidden = false; });
   if (config.instagramUrl) {
@@ -24,7 +37,7 @@
       if (url.protocol === "https:" && /^(www\.)?instagram\.com$/.test(url.hostname)) document.querySelectorAll("[data-instagram]").forEach(el => { el.href = url.href; el.hidden = false; });
     } catch { /* Invalid optional addresses remain hidden. */ }
   }
-  if (config.siteUrl) {
+  if (config.siteUrl && !document.body.classList.contains("error-page")) {
     try {
       const siteUrl = new URL(config.siteUrl);
       if (siteUrl.protocol === "https:" || siteUrl.protocol === "http:") {
@@ -52,6 +65,43 @@
     document.addEventListener("keydown", event => { if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") { closeMenu(); menu.focus(); } });
     document.addEventListener("click", event => { if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
     window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
+    const sectionLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    const markCurrent = id => sectionLinks.forEach(link => {
+      if (link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+    sectionLinks.forEach(link => link.addEventListener("click", () => markCurrent(link.getAttribute("href").slice(1))));
+    if (sectionLinks.length) {
+      const sections = sectionLinks.map(link => document.getElementById(link.getAttribute("href").slice(1))).filter(Boolean);
+      let framePending = false;
+      const updateCurrentSection = () => {
+        framePending = false;
+        const header = document.querySelector(".site-header");
+        const referenceLine = (header ? header.getBoundingClientRect().height : 88) + 100;
+        let current = "inicio";
+        sections.forEach(section => { if (section.getBoundingClientRect().top <= referenceLine) current = section.id; });
+        markCurrent(current);
+      };
+      const scheduleCurrentSection = () => {
+        if (framePending) return;
+        framePending = true;
+        window.requestAnimationFrame(updateCurrentSection);
+      };
+      window.addEventListener("scroll", scheduleCurrentSection, {passive: true});
+      window.addEventListener("resize", scheduleCurrentSection, {passive: true});
+      scheduleCurrentSection();
+    }
+  }
+
+  // The contact section already has clear actions; keep the floating shortcut
+  // from covering the form and the contact details while that section is visible.
+  const floatingContact = document.querySelector(".floating-whatsapp");
+  const contactSection = document.getElementById("contato");
+  if (floatingContact && contactSection && "IntersectionObserver" in window) {
+    const contactObserver = new window.IntersectionObserver(entries => {
+      floatingContact.hidden = entries[0].isIntersecting;
+    }, {threshold: 0});
+    contactObserver.observe(contactSection);
   }
 
   const form = document.getElementById("quote-form");
@@ -104,10 +154,10 @@
       window.fbq("consent", "grant"); window.fbq("init", pixelId); window.fbq("track", "PageView");
     }
   }
-  function trackContact(placement, selectedService = "") {
+  function trackContact(placement, selectedService = "", channel = "whatsapp") {
     if (consent !== "granted" || !trackingStarted) return;
-    if (gtmId) window.dataLayer.push({event: "whatsapp_click", contact_placement: placement, service: selectedService});
-    if (pixelId && window.fbq) window.fbq("track", "Contact", {content_name: selectedService || "Contato pelo WhatsApp", contact_placement: placement});
+    if (gtmId) window.dataLayer.push({event: channel + "_click", contact_channel: channel, contact_placement: placement, service: selectedService});
+    if (pixelId && window.fbq) window.fbq("track", "Contact", {content_name: selectedService || (channel === "email" ? "Contato por e-mail" : "Contato pelo WhatsApp"), contact_channel: channel, contact_placement: placement});
   }
   function saveConsent(value) {
     const wasGranted = consent === "granted";

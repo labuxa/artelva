@@ -3,10 +3,12 @@ window.ARTELVA_CONFIG = Object.freeze({
   whatsappNumber: "5531986964656",
   whatsappDisplay: "(31) 98696-4656",
   whatsappContactName: "Elvis",
+  contactEmail: "artelvaconstrutoraeng@gmail.com",
   defaultMessage: "Olá! Vim pelo site da Artelva e gostaria de solicitar um orçamento para um serviço.",
 
   // Endereço completo do Instagram. Vazio = link oculto, sem endereço inventado.
   instagramUrl: "https://www.instagram.com/artelvaconstrutora/",
+  arthurLinkedinUrl: "https://www.linkedin.com/in/arthuraraujo0/",
 
   // Preencha apenas quando a região de atendimento estiver definida.
   serviceAreaText: "Atendimento em Belo Horizonte, Betim, Contagem, Ibirité e Sarzedo. Cidades próximas sob consulta.",
