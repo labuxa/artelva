@@ -70,16 +70,61 @@
       if (link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
     });
-    sectionLinks.forEach(link => link.addEventListener("click", () => markCurrent(link.getAttribute("href").slice(1))));
+    // Keep the public section hashes, but align the visible content rather than
+    // the section's decorative padding. A single scroll owns each navigation.
+    const scrollTargets = {
+      inicio: document.getElementById("inicio"),
+      servicos: document.querySelector("#servicos .services-layout"),
+      processo: document.querySelector("#processo .process-copy > .eyebrow"),
+      sobre: document.querySelector("#sobre .about-top"),
+      contato: document.querySelector("#contato .contact-layout")
+    };
+    const scrollToSection = (id, behavior = "instant", moveFocus = false) => {
+      const target = scrollTargets[id];
+      if (!target) return;
+      const header = document.querySelector(".site-header");
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const top = id === "inicio" ? 0 : Math.max(0, window.scrollY + target.getBoundingClientRect().top - headerHeight - 24);
+      if (moveFocus) {
+        target.setAttribute("tabindex", "-1");
+        target.focus({preventScroll: true});
+      }
+      window.scrollTo({top, behavior});
+      markCurrent(id);
+    };
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      const id = link.getAttribute("href").slice(1);
+      if (!scrollTargets[id]) return;
+      link.addEventListener("click", event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        closeMenu();
+        if (window.location.hash !== "#" + id) window.history.pushState(null, "", "#" + id);
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        scrollToSection(id, reducedMotion ? "instant" : "smooth", true);
+      });
+    });
+    const alignCurrentHash = () => {
+      const id = window.location.hash.slice(1);
+      if (scrollTargets[id]) scrollToSection(id);
+    };
+    window.addEventListener("popstate", () => window.requestAnimationFrame(alignCurrentHash));
+    const initialHash = window.location.hash;
+    const alignInitialHash = () => {
+      const ready = document.fonts ? document.fonts.ready : Promise.resolve();
+      ready.then(() => { if (window.location.hash === initialHash) alignCurrentHash(); });
+    };
+    if (document.readyState === "complete") alignInitialHash();
+    else window.addEventListener("load", alignInitialHash, {once: true});
     if (sectionLinks.length) {
-      const sections = sectionLinks.map(link => document.getElementById(link.getAttribute("href").slice(1))).filter(Boolean);
+      const sections = sectionLinks.map(link => ({id: link.getAttribute("href").slice(1), target: scrollTargets[link.getAttribute("href").slice(1)]})).filter(section => section.target);
       let framePending = false;
       const updateCurrentSection = () => {
         framePending = false;
         const header = document.querySelector(".site-header");
         const referenceLine = (header ? header.getBoundingClientRect().height : 88) + 100;
         let current = "inicio";
-        sections.forEach(section => { if (section.getBoundingClientRect().top <= referenceLine) current = section.id; });
+        sections.forEach(section => { if (section.target.getBoundingClientRect().top <= referenceLine) current = section.id; });
         markCurrent(current);
       };
       const scheduleCurrentSection = () => {

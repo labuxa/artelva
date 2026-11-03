@@ -23,6 +23,9 @@ O GitHub Pages e o workflow já estão configurados no repositório. **Não é n
 - Perfil de Arthur baseado no currículo fornecido, com link para o LinkedIn. Dados pessoais de contato e o currículo completo não foram publicados.
 - E-mail comercial **artelvaconstrutoraeng@gmail.com** no contato, rodapé, política de privacidade, página 404 e metadados.
 - Menu fixo durante a rolagem, indicação da seção atual e acesso direto à área de contato.
+- Navegação corrigida: cada link chega ao conteúdo da seção, a 24 px do cabeçalho, sem faixa da seção anterior ou soma dos espaçamentos internos.
+- A aba “Como funciona” chega às etapas também no celular. Links diretos com `#`, retorno ao topo e navegação pelo histórico usam o mesmo alinhamento.
+- Rolagem suave aplicada somente à navegação interna explícita, respeitando a preferência por movimento reduzido.
 - Atalho flutuante de WhatsApp recolhido enquanto a área de contato está visível, para manter o formulário livre.
 - Ajustes de leitura, espaçamento, navegação móvel e quebra de linhas dos contatos.
 - Pergunta frequente sobre atendimento a imobiliárias e imóveis para locação.
