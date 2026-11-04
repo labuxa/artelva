@@ -1,4 +1,4 @@
-# Artelva Construtora — site final
+# Artelva Construtora — versão profissional com projetos
 
 Site estático para o **GitHub Pages**, com arquivos prontos para publicação. Não exige instalação, build de aplicação ou servidor próprio.
 
@@ -23,6 +23,7 @@ O GitHub Pages já está configurado. O workflow `.github/workflows/static.yml` 
 - `servicos/eletrica-iluminacao.html`: elétrica e iluminação.
 - `servicos/reforma-banheiro.html`: reformas de banheiros.
 - `servicos/reforma-ambientes.html`: reformas de ambientes.
+- `servicos/projetos-parceiros.html`: projetos de arquitetura e complementares por parceiros, integrados ao planejamento da execução.
 - `imobiliarias.html`: manutenção e preparação de imóveis para locação, com contratação por demanda.
 - `privacidade.html` e `termos.html`: funcionamento do site e dos recursos de contato.
 - `404.html`: recuperação de endereços não encontrados.
@@ -37,9 +38,15 @@ Cada serviço tem conteúdo próprio e botões de WhatsApp com mensagem específ
 - Região: Belo Horizonte, Betim, Contagem, Ibirité e Sarzedo. Cidades próximas sob consulta.
 - Atendimento em horário comercial; visitas mediante agendamento.
 
-A apresentação da equipe foi mantida com as informações fornecidas. Arthur é apresentado como engenheiro civil, com experiência em planejamento, coordenação de obras e manutenção. Elvis é apresentado com experiência em obras, elétrica e liderança; Técnico em Edificações em andamento.
+A apresentação da equipe foi reescrita com foco institucional: Arthur Araújo em engenharia e gestão técnica; Elvis de Morais Rosa em coordenação operacional. Os textos valorizam a experiência informada e as responsabilidades na Artelva, sem alegar títulos, formação concluída, cargos anteriores ou experiência em reformas de alto padrão não confirmados.
 
 Não foram publicados currículo completo, contatos pessoais de Arthur, endereço residencial, CNPJ ou número de registro profissional. Não foram inventados depoimentos, avaliações, quantidade de obras ou tempo de empresa.
+
+## Projetos com parceiros
+
+A Artelva continua posicionada como executora e integradora do atendimento. O desenvolvimento de projetos de arquitetura e complementares é apresentado como serviço realizado por parceiros especializados. A proposta deve definir disciplinas, entregas, valores, prazos, forma de contratação e responsabilidades por projeto e execução. Não há promessa de projeto incluído automaticamente em toda reforma.
+
+A área “Projetos” está na página inicial, no menu, no rodapé, nas páginas de execução e em uma página própria. O formulário inclui a opção “Projeto e execução”, e as mensagens de WhatsApp dessa área identificam o interesse do visitante.
 
 ## WhatsApp e formulário
 
@@ -80,6 +87,6 @@ Quando um ID válido for preenchido, o aviso de medição aparece. As ferramenta
 
 ## Verificação da entrega
 
-Foram verificados os arquivos e caminhos internos, metadados de cada página, conteúdo do sitemap, contatos, formulário, mensagens por serviço e consentimento de medição. A navegação e os layouts foram revisados no navegador em computador e em larguras de 320, 390 e 768 pixels.
+Foram verificados os arquivos e caminhos internos, metadados de cada página, conteúdo do sitemap, contatos, formulário, mensagens por serviço e consentimento de medição. A navegação e os layouts foram revisados no navegador em computador e em larguras de 320, 390, 768 e 1000 pixels.
 
 Esta entrega contém o pacote para atualizar o repositório. A publicação no endereço público acontece depois do envio dos arquivos e da conclusão do workflow do GitHub Pages.

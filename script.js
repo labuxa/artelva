@@ -29,7 +29,7 @@
     if (!href || href.startsWith("#")) return;
     try {
       const url = new URL(href, window.location.href);
-      const marketingPage = /\/(?:index\.html|imobiliarias\.html|servicos\/(?:pintura-revestimentos|eletrica-iluminacao|reforma-banheiro|reforma-ambientes)\.html)$/.test(url.pathname) || url.pathname.endsWith("/");
+      const marketingPage = /\/(?:index\.html|imobiliarias\.html|servicos\/(?:pintura-revestimentos|eletrica-iluminacao|reforma-banheiro|reforma-ambientes|projetos-parceiros)\.html)$/.test(url.pathname) || url.pathname.endsWith("/");
       if (url.origin !== window.location.origin || !marketingPage || !/^https?:$/.test(url.protocol)) return;
       campaignKeys.forEach((key, i) => { if (campaign[i]) url.searchParams.set(key, campaign[i]); });
       link.href = url.href;
@@ -79,7 +79,7 @@
     menu.hidden = false;
     menu.addEventListener("click", () => { const open = menu.getAttribute("aria-expanded") !== "true"; menu.setAttribute("aria-expanded", String(open)); menu.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu"); nav.classList.toggle("is-open", open); });
     nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", event => { if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") { closeMenu(); menu.focus(); } });
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") { closeMenu(); menu.focus({preventScroll: true}); } });
     document.addEventListener("click", event => { if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
     window.matchMedia("(min-width: 961px)").addEventListener("change", closeMenu);
     const sectionLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
@@ -92,6 +92,7 @@
     const scrollTargets = {
       inicio: document.getElementById("inicio"),
       servicos: document.querySelector("#servicos .services-layout"),
+      projetos: document.querySelector("#projetos .project-feature-layout"),
       processo: document.querySelector("#processo .process-copy > .eyebrow"),
       sobre: document.querySelector("#sobre .about-top"),
       contato: document.querySelector("#contato .contact-layout")
@@ -168,7 +169,7 @@
 
   const form = document.getElementById("quote-form");
   const service = document.getElementById("client-service");
-  const serviceNames = {"pintura-revestimentos": "Pintura e revestimentos", "eletrica-iluminacao": "Elétrica e iluminação", "reforma-banheiro": "Reformas de banheiros", "reforma-ambientes": "Reformas de ambientes"};
+  const serviceNames = {"pintura-revestimentos": "Pintura e revestimentos", "eletrica-iluminacao": "Elétrica e iluminação", "reforma-banheiro": "Reformas de banheiros", "reforma-ambientes": "Reformas de ambientes", "projetos-parceiros": "Projeto e execução"};
   const requestedService = serviceNames[campaignParams.get("servico")];
   if (service && requestedService) service.value = requestedService;
   document.querySelectorAll("[data-service]").forEach(link => link.addEventListener("click", () => { if (service) { service.value = link.dataset.service; } }));
