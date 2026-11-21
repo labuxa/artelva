@@ -20,7 +20,7 @@ window.ARTELVA_CONFIG = Object.freeze({
   // Com IDs válidos, só são carregados após o visitante aceitar a medição.
   // Nunca adicione as mesmas tags também no HTML, pois isso duplica eventos.
   tracking: Object.freeze({
-    googleTagManagerId: "",
+    googleTagManagerId: "GTM-PMNZ6MSM",
     metaPixelId: ""
   })
 });
