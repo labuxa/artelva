@@ -1,20 +1,39 @@
-# Artelva Construtora — versão profissional com projetos
+# Artelva Construtora — domínio próprio
 
 Site estático para o **GitHub Pages**, com arquivos prontos para publicação. Não exige instalação, build de aplicação ou servidor próprio.
 
-Endereço: **https://labuxa.github.io/artelva/**
+Endereço: **https://artelvaconstrutora.com.br/**
 Repositório: **https://github.com/labuxa/artelva** — branch **main**.
 
-## Como atualizar o site
+## Como aplicar esta atualização
 
-1. Extraia o ZIP. Na pasta extraída você encontrará `index.html`, `styles.css`, `script.js`, `config.js`, a pasta `assets` e a pasta `servicos`.
-2. No repositório, abra **Code → Add file → Upload files**.
-3. Envie **o conteúdo extraído para a raiz do repositório**, mantendo as pastas `assets` e `servicos` com suas subpastas. Não envie o ZIP nem uma pasta externa envolvendo o projeto.
-4. Confirme o commit na branch **main**.
-5. Abra **Actions** e espere a publicação ficar verde.
-6. Abra o endereço do site. Se necessário, use `Ctrl + F5` ou uma janela anônima.
+Este ZIP de atualização contém somente os 14 arquivos que mudam para o domínio próprio. Ele deve ser aplicado ao repositório existente; os demais arquivos já publicados continuam necessários.
 
-O GitHub Pages já está configurado. O workflow `.github/workflows/static.yml` incluído é o mesmo que já funciona no repositório; preserve-o. A pasta oculta `.github` e o arquivo `.nojekyll` fazem parte do pacote.
+1. Em **Settings → Pages → Custom domain**, informe `artelvaconstrutora.com.br` e clique em **Save**, antes de apontar o DNS.
+2. Extraia o ZIP de atualização.
+3. No repositório, use **Code → Add file → Upload files** e envie os arquivos e a pasta `servicos` extraídos, mantendo a estrutura de pastas. Não envie o ZIP nem a pasta externa que o contém.
+4. Confirme o commit na branch **main** e aguarde a publicação em **Actions**.
+5. No Registro.br, abra o domínio → **Configurar endereçamento** → **Modo avançado**. Se houver uma transição, aguarde a liberação informada pelo painel.
+6. Crie os registros abaixo. Para o domínio principal, deixe o campo de nome vazio no Registro.br; o sufixo do domínio é preenchido pelo painel.
+
+| Tipo | Nome | Destino |
+| --- | --- | --- |
+| A | vazio | 185.199.108.153 |
+| A | vazio | 185.199.109.153 |
+| A | vazio | 185.199.110.153 |
+| A | vazio | 185.199.111.153 |
+| CNAME | www | labuxa.github.io |
+
+Confira os registros existentes antes de salvar: os registros A/AAAA do domínio principal e o CNAME de www precisam ser compatíveis com o GitHub Pages. Preserve registros de e-mail, verificações TXT e outras configurações sem relação com o site. Não use o recurso de redirecionamento de endereço nem troque os servidores DNS para os IPs acima.
+
+7. Após a validação do DNS no GitHub, habilite **Enforce HTTPS** quando disponível. A propagação do DNS e a liberação do HTTPS podem levar até 24 horas.
+8. Abra o endereço HTTPS, teste a página inicial, os serviços e o WhatsApp. Depois atualize o endereço do site no Perfil da Empresa, Instagram e eventual anúncio para `https://artelvaconstrutora.com.br/`.
+
+O workflow existente `.github/workflows/static.yml`, os arquivos `styles.css` e `script.js` e a pasta `assets` são preservados. Em publicação por GitHub Actions, a associação do domínio é feita nas configurações do Pages; adicionar apenas um arquivo CNAME não substitui essa configuração.
+
+Referências oficiais:
+- https://docs.github.com/pt/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+- https://registro.br/tecnologia/caracteristicas-tecnicas/
 
 ## Páginas incluídas
 
@@ -28,7 +47,7 @@ O GitHub Pages já está configurado. O workflow `.github/workflows/static.yml` 
 - `privacidade.html` e `termos.html`: funcionamento do site e dos recursos de contato.
 - `404.html`: recuperação de endereços não encontrados.
 
-Cada serviço tem conteúdo próprio e botões de WhatsApp com mensagem específica. O menu, o rodapé e os caminhos internos funcionam dentro do projeto `/artelva/`, inclusive nas páginas em subpastas.
+Cada serviço tem conteúdo próprio e botões de WhatsApp com mensagem específica. O menu, o rodapé e os caminhos internos estão preparados para o domínio próprio, inclusive nas páginas em subpastas.
 
 ## Contatos e informações
 
@@ -70,7 +89,7 @@ A identidade em grafite, dourado e tons claros foi preservada. Fontes Manrope e 
 - `script.js`: menu, rolagem, mensagens, formulário e medição com consentimento.
 - `sitemap.xml` e `robots.txt`: endereço e páginas para indexação.
 
-Se mudar contatos ou endereço de publicação, atualize também os textos e os metadados estáticos dos arquivos HTML. Se mudar o nome do repositório ou usar domínio próprio, ajuste os caminhos `/artelva/` em `404.html`, além de `config.js`, `sitemap.xml`, `robots.txt` e das URLs canônicas.
+Se mudar contatos ou endereço de publicação, atualize também os textos e os metadados estáticos dos arquivos HTML. O domínio desta atualização foi aplicado em `config.js`, nos metadados e dados estruturados dos HTML, em `sitemap.xml` e `robots.txt`. A página `404.html` usa caminhos a partir da raiz do domínio.
 
 ## Preparação para anúncios
 
@@ -85,8 +104,6 @@ Quando um ID válido for preenchido, o aviso de medição aparece. As ferramenta
 - Os campos `utm_source`, `utm_medium` e `utm_campaign` acompanham a navegação entre páginas de apresentação e aparecem na mensagem de WhatsApp, visíveis para o visitante antes do envio.
 - Não instale a mesma ferramenta diretamente e também pelo GTM.
 
-## Verificação da entrega
+## Verificação desta atualização
 
-Foram verificados os arquivos e caminhos internos, metadados de cada página, conteúdo do sitemap, contatos, formulário, mensagens por serviço e consentimento de medição. A navegação e os layouts foram revisados no navegador em computador e em larguras de 320, 390, 768 e 1000 pixels.
-
-Esta entrega contém o pacote para atualizar o repositório. A publicação no endereço público acontece depois do envio dos arquivos e da conclusão do workflow do GitHub Pages.
+Conferência de URLs canônicas, dados estruturados, compartilhamento, sitemap, versão da configuração e caminhos internos contra a árvore de arquivos do repositório. As mudanças desta atualização se limitam aos endereços de publicação e às instruções de instalação. A validação do DNS, do certificado e do site público exige concluir as configurações nos painéis.

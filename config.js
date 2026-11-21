@@ -14,7 +14,7 @@ window.ARTELVA_CONFIG = Object.freeze({
   serviceAreaText: "Atendimento em Belo Horizonte, Betim, Contagem, Ibirité e Sarzedo. Cidades próximas sob consulta.",
 
   // URL pública definitiva, incluindo o subdiretório se houver. Ex.: https://seu-dominio.com.br/
-  siteUrl: "https://labuxa.github.io/artelva/",
+  siteUrl: "https://artelvaconstrutora.com.br/",
 
   // Opcionais. Sem IDs, nenhum script de medição é carregado.
   // Com IDs válidos, só são carregados após o visitante aceitar a medição.
