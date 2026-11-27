@@ -1,0 +1,25 @@
+ARTELVA — ATUALIZAÇÃO DE FOTOS — 27/11/2026
+
+COMO SUBIR NO SITE
+1. Extraia este ZIP no computador.
+2. No repositório labuxa/artelva, abra a raiz do projeto e use Add file > Upload files.
+3. Envie os arquivos e as pastas extraídos, preservando assets/images e servicos. O index.html deve ficar na raiz do repositório.
+4. Confirme a substituição dos arquivos existentes e salve o commit na branch main.
+5. Aguarde a publicação do GitHub Pages e confira o site. Se ainda aparecer a versão anterior, atualize com Ctrl+F5.
+
+Este é um pacote de atualização: mantenha os demais arquivos que já existem no repositório. O ZIP não deve ser enviado fechado e não é preciso criar outra pasta acima do index.html.
+
+O QUE ESTÁ INCLUÍDO
+- Página inicial: galeria “Experiência em execução”, com 3 fotos.
+- Elétrica e iluminação: foto de abertura e 2 registros adicionais.
+- Pintura e revestimentos: 2 fotos de assentamento e piso em obra.
+- 6 fotos diferentes em 17 versões WebP, com tamanhos adequados ao carregamento da página.
+- CSS atualizado e datas de modificação das 3 páginas no sitemap.
+
+OBSERVAÇÃO NAS FOTOS
+Registros de serviços executados por Elvis
+
+O pacote preserva as configurações e os links existentes do domínio, do WhatsApp e da medição. config.js e script.js continuam no repositório, sem substituição neste pacote.
+
+CONFERÊNCIAS REALIZADAS
+Imagens e crédito; exibição em computador, celular (390 px) e tablet (768 px); links das galerias; links locais e âncoras; JSON-LD; preservação dos links de WhatsApp e das configurações de medição.
